@@ -1,0 +1,153 @@
+<?php
+// Include header
+include_once __DIR__ . '/Include/Header.php';
+
+// --- OPTIONAL: Uncomment and configure database connection if needed ---
+// $conn = new mysqli('localhost', 'username', 'password', 'database');
+// if ($conn->connect_error) {
+//     die('Connection failed: ' . $conn->connect_error);
+// }
+?>
+<style>
+body {
+  background: #181818;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow-x: hidden;
+}
+.futuristic-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+.main-section {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  background: rgba(35,41,70,0.97);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 3.5rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  animation: floatUp 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+</style>
+<div class="futuristic-bg">
+  <canvas id="futuristic-canvas" style="width:100vw; height:100vh; display:block;"></canvas>
+</div>
+<main style="min-height: 100vh; width: 100vw; font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(120deg, #232946 60%, #eebd3f 100%); color: #f4faff; padding: 0; margin: 0; overflow-x: hidden; position: relative;">
+	<!-- Matrix and Running Code Background -->
+	<div id="matrix-bg" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;">
+		<canvas id="matrix-canvas" style="width: 100vw; height: 100vh; display: block;"></canvas>
+	</div>
+   <section style="width: 100vw; min-height: 100vh; margin: 0; background: rgba(35,41,70,0.97); border-radius: 0; box-shadow: none; padding: 3.5rem 0 2rem 0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 1;">
+		
+		<!-- Profile Heading -->
+	<h1 style="font-size: 3.2rem; color: #eebd3f; margin-bottom: 0.5rem; letter-spacing: 2px; text-align: center;">Michael Muinde</h1>
+	<h2 style="font-size: 1.5rem; color: #f4faff; margin-bottom: 2.5rem; text-align: center;">Full Stack Developer & Cybersecurity Expert</h2>
+		
+        <!-- About Section with Photo and History Side by Side -->
+        <section id="about" style="margin-bottom: 2.5rem; display: flex; align-items: center; gap: 3.5rem; width: 90vw; max-width: 1400px; min-height: 220px; justify-content: center;">
+          <div style="flex: 0 0 300px; display: flex; align-items: flex-start; justify-content: flex-start;">
+              <img src="\mike profile\Assets\images\profile.jpeg" alt="Mutinda Michael Muinde" style="width: 260px; height: 260px; object-fit: cover; border-radius: 50%; border: 5px solid #eebd3f; background: #232946; margin-bottom: 1rem; box-shadow: 0 0 24px #eebd3f55;" />
+            </div>
+            <div style="flex: 1; text-align: right; display: flex; flex-direction: column; align-items: flex-end;">
+                <h3 style="color: #eebd3f; font-size: 2rem;">Professional Summary</h3>
+                <p style="max-width: 700px; font-size: 1.15rem; text-align: justify; line-height: 1.7; color: #f4faff;">
+                    Innovative and dependable ICT professional with a Bachelor of Science in Mathematics and Computer Science, offering firm experience in IT support, software development, system and network administration, and cybersecurity practices. Dedicated to enhancing service delivery through secure and efficient ICT systems. Proven track record of managing mission-critical infrastructure, training users, and delivering user-focused support.
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects / Skills Section -->
+        <section id="projects" style="margin-bottom: 2.5rem; width: 90vw; max-width: 1400px; display: flex; flex-direction: column; align-items: center;">
+          <h3 style="color: #eebd3f; font-size: 2rem; text-align: center; margin-bottom: 1.2rem;">Areas I'm Best In Coding</h3>
+          <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem 2.5rem; list-style: disc inside; color: #f4faff; font-size: 1.15rem; max-width: 800px; margin: 0 auto; padding: 0; text-align: left;">
+            <li style="background: #232946; border-radius: 8px; padding: 0.5em 1em; box-shadow: 0 0 8px #eebd3f22;">Front-End Development (HTML, CSS, JavaScript, React)</li>
+            <li style="background: #232946; border-radius: 8px; padding: 0.5em 1em; box-shadow: 0 0 8px #eebd3f22;">Back-End Development (PHP, Node.js, MySQL)</li>
+            <li style="background: #232946; border-radius: 8px; padding: 0.5em 1em; box-shadow: 0 0 8px #eebd3f22;">Database Design & Management</li>
+            <li style="background: #232946; border-radius: 8px; padding: 0.5em 1em; box-shadow: 0 0 8px #eebd3f22;">API Integration & Development</li>
+            <li style="background: #232946; border-radius: 8px; padding: 0.5em 1em; box-shadow: 0 0 8px #eebd3f22;">Responsive Web Design</li>
+            <li style="background: #232946; border-radius: 8px; padding: 0.5em 1em; box-shadow: 0 0 8px #eebd3f22;">UI/UX Design Principles</li>
+          </ul>
+        </section>
+
+        <!-- Three-part image section -->
+        <section style="width: 90vw; max-width: 1400px; display: flex; gap: 2rem; justify-content: center; align-items: flex-start; margin-bottom: 2.5rem;">
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <img src="Assets/images/ps.jpeg" alt="With labour Ps shedrack mwadime" style="width: 100%; max-width: 350px; height: 260px; object-fit: contain; background: #232946; border-radius: 16px; box-shadow: 0 0 16px #eebd3f44;">
+            <div style="margin-top: 1rem; color: #eebd3f; font-size: 1.1rem; text-align: center;">With ps for labour shedrack mwadime</div>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <img src="Assets/images/mruttu.jpeg" alt="With Governor John Mruttu" style="width: 100%; max-width: 350px; height: 260px; object-fit: contain; background: #232946; border-radius: 16px; box-shadow: 0 0 16px #eebd3f44;">
+            <div style="margin-top: 1rem; color: #eebd3f; font-size: 1.1rem; text-align: center;">With Governor John Mruttu</div>
+          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+            <img src="Assets/images/graduation.jpeg" alt="Graduation at Taita Taveta University" style="width: 100%; max-width: 350px; height: 260px; object-fit: contain; background: #232946; border-radius: 16px; box-shadow: 0 0 16px #eebd3f44;">
+            <div style="margin-top: 1rem; color: #eebd3f; font-size: 1.1rem; text-align: center;">Graduation with Bsc.in Mathematics and Computer Science</div>
+          </div>
+        </section>
+	</section>
+</main>
+<script>
+// Futuristic animated background (moving neon lines)
+const canvas = document.getElementById('futuristic-canvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+const lines = Array.from({length: 18}, (_,i) => ({
+  x: Math.random() * window.innerWidth,
+  y: Math.random() * window.innerHeight,
+  len: 120 + Math.random()*180,
+  speed: 1.2 + Math.random()*1.8,
+  angle: Math.random()*Math.PI*2,
+  color: `hsla(${180+Math.random()*120},100%,60%,0.7)`
+}));
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for (const l of lines) {
+    ctx.save();
+    ctx.translate(l.x, l.y);
+    ctx.rotate(l.angle);
+    ctx.shadowColor = l.color;
+    ctx.shadowBlur = 16;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(l.len,0);
+    ctx.strokeStyle = l.color;
+    ctx.lineWidth = 3.5;
+    ctx.stroke();
+    ctx.restore();
+    l.x += Math.cos(l.angle)*l.speed;
+    l.y += Math.sin(l.angle)*l.speed;
+    if (l.x > canvas.width+200 || l.x < -200 || l.y > canvas.height+200 || l.y < -200) {
+      l.x = Math.random()*canvas.width;
+      l.y = Math.random()*canvas.height;
+      l.angle = Math.random()*Math.PI*2;
+    }
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+<?php
+// Include footer
+include_once __DIR__ . '/Include/footer.php';
+?>

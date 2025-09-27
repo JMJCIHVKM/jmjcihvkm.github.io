@@ -1,0 +1,148 @@
+<?php
+// Include header
+include_once __DIR__ . '/Include/Header.php';
+?>
+<style>
+body {
+    background: #181818;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow-x: hidden;
+}
+.futuristic-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+.contact-section {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(30,30,30,0.97);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 32px #00ffe7cc, 0 4px 24px #0008;
+    padding: 2.5rem 2rem;
+    margin-top: 5vh;
+    backdrop-filter: blur(2px);
+    animation: floatUp 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.contact-section h2 {
+    color: #00ffe7;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px #00ffe7cc;
+}
+.contact-section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.22rem;
+}
+.contact-section li {
+    margin-bottom: 1.2rem;
+    background: linear-gradient(90deg, #232946 60%, #00ffe7 100%);
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 0 12px #00ffe744;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: box-shadow 0.2s, background 0.2s;
+}
+.contact-section li:hover {
+    box-shadow: 0 0 24px #00ffe7cc;
+    background: linear-gradient(90deg, #00ffe7 60%, #232946 100%);
+}
+.contact-section strong {
+    color: #eebd3f;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.contact-section a {
+    color: #00ffe7;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.contact-section a:hover {
+    color: #eebd3f;
+}
+.contact-section span {
+    color: #eebd3f;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+</style>
+<div class="futuristic-bg">
+    <canvas id="futuristic-canvas" style="width:100vw; height:100vh; display:block;"></canvas>
+</div>
+<main style="min-height: 50vh; font-family: 'Segoe UI', Arial, sans-serif; background: transparent; color: #fff; padding: 2rem 0;">
+        <section class="contact-section">
+                <h2>Contact Information</h2>
+                <ul>
+                        <li>
+                                <strong>Mobile phone number:</strong> 
+                                <span>+254712782311</span>
+                        </li>
+                        <li>
+                                <strong>Email:</strong> 
+                                <a href="mailto:Michaelmuinde87@gmail.com">Michaelmuinde87@gmail.com</a>
+                        </li>
+                </ul>
+        </section>
+</main>
+<script>
+// Futuristic animated background (moving neon lines)
+const canvas = document.getElementById('futuristic-canvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+const lines = Array.from({length: 18}, (_,i) => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    len: 120 + Math.random()*180,
+    speed: 1.2 + Math.random()*1.8,
+    angle: Math.random()*Math.PI*2,
+    color: `hsla(${180+Math.random()*120},100%,60%,0.7)`
+}));
+function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (const l of lines) {
+        ctx.save();
+        ctx.translate(l.x, l.y);
+        ctx.rotate(l.angle);
+        ctx.shadowColor = l.color;
+        ctx.shadowBlur = 16;
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.lineTo(l.len,0);
+        ctx.strokeStyle = l.color;
+        ctx.lineWidth = 3.5;
+        ctx.stroke();
+        ctx.restore();
+        l.x += Math.cos(l.angle)*l.speed;
+        l.y += Math.sin(l.angle)*l.speed;
+        if (l.x > canvas.width+200 || l.x < -200 || l.y > canvas.height+200 || l.y < -200) {
+            l.x = Math.random()*canvas.width;
+            l.y = Math.random()*canvas.height;
+            l.angle = Math.random()*Math.PI*2;
+        }
+    }
+    requestAnimationFrame(draw);
+}
+draw();
+</script>
+

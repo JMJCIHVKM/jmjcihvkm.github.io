@@ -1,0 +1,156 @@
+<?php
+include_once __DIR__ . '/Include/Header.php';
+?>
+<main style="min-height: 60vh; font-family: 'Segoe UI', Arial, sans-serif; background: #181818; color: #fff; padding: 2rem 0; position: relative; z-index: 1;">
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem;">
+            <img src="\mike profile\Assets\images\profile.jpeg" alt="Mutinda Michael Muinde" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 3px solid #0ff; background: #222; margin-bottom: 1rem;" />
+            <h1 style="font-size: 2.3rem; color: #0ff; letter-spacing: 2px; text-align: center; margin-bottom: 0;">About Mutinda Michael Muinde</h1>
+        </div>
+        <div id="slides-container" style="position: relative; max-width: 1000px; margin: 0 auto;">
+            <div class="slide" style="display: flex; gap: 2.5rem; justify-content: center; align-items: flex-start;">
+                <div style="flex:1; min-width: 320px;">
+                    <h2 style="color: #ff9800; border-bottom: 2px solid #0ff; padding-bottom: 0.3rem;">Education</h2>
+                    <ol style="margin-left: 1.2rem;">
+                        <li><strong>Taita Taveta University</strong><br>Bachelor of Science in Mathematics and Computer Science, August 2025</li>
+                        <li><strong>SHOFCO Foundation</strong><br>Certificate in Computer Application packages, March 2018</li>
+                        <li><strong>Mikuini Secondary School</strong><br>Kenya Certificate of Secondary Education – C+ (52 Points), 2014-2017</li>
+                        <li><strong>Mbuuni Primary School</strong><br>Kenya Certificate of Primary Education – 342 Marks, 2005-2013</li>
+                    </ol>
+                </div>
+                <div style="flex:1; min-width: 320px;">
+                    <h2 style="color: #ff9800; border-bottom: 2px solid #0ff; padding-bottom: 0.3rem;">Work Experience</h2>
+                    <ol style="margin-left: 1.2rem;">
+                        <li><strong>IT Technician | Rainbow Ruiru Resort, Kiambu</strong><br><em>Jul 2023 – Present</em>
+                            <ul>
+                                <li>Installed, configured, and managed wired/wireless networks.</li>
+                                <li>Maintained and secured servers, administered user accounts and system resources.</li>
+                                <li>Delivered on-demand user support for software, hardware, and connectivity issues.</li>
+                                <li>Led regular system backups, verified data integrity, and enforced cybersecurity protocols.</li>
+                                <li>Documented IT procedures and trained staff on digital systems.</li>
+                                <li>Managed IT assets, liaised with vendors, and proposed system upgrades.</li>
+                                <li>Led research, design, development and testing of the company's software.</li>
+                                <li>Tested and evaluated the company’s new programs.</li>
+                                <li>Set up public address for clients.</li>
+                                <li>Set up projectors and smart TV displays for conference halls.</li>
+                            </ul>
+                        </li>
+                        <li><strong>IT Specialist & Teacher | Samergo High School, Nairobi</strong><br><em>Apr – Sep 2019</em>
+                            <ul>
+                                <li>Taught mathematics and physics subjects.</li>
+                                <li>Oversaw ICT equipment maintenance and provided tech support to teaching staff.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Enumerator | Kenya National Bureau of Statistics, Nairobi</strong><br><em>2019</em>
+                            <ul>
+                                <li>Collected, verified, and submitted household census data accurately and efficiently.</li>
+                                <li>Maintained high ethical standards and ensured data confidentiality.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="slide" style="display: none; gap: 2.5rem; justify-content: center; align-items: flex-start;">
+                <div style="flex:1; min-width: 320px;">
+                    <h2 style="color: #ff9800; border-bottom: 2px solid #0ff; padding-bottom: 0.3rem;">Awards & Recognitions</h2>
+                    <ul style="margin-left: 1.2rem;">
+                        <li>Trophy and Certificate – 2nd Place, Katoloni Mathematics Contest – 2014</li>
+                        <li>Certificate – Brookside Mathlete National Contest – May 2017</li>
+                        <li>Two Certificates – National Math/Chemistry Contest – May 2017</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width: 320px;">
+                    <h2 style="color: #ff9800; border-bottom: 2px solid #0ff; padding-bottom: 0.3rem;">Languages</h2>
+                    <ul style="margin-left: 1.2rem;">
+                        <li>English (Fluent)</li>
+                        <li>Kiswahili (Fluent)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide" style="display: none; gap: 2.5rem; justify-content: center; align-items: flex-start;">
+                <div style="flex:1; min-width: 320px;">
+                    <h2 style="color: #ff9800; border-bottom: 2px solid #0ff; padding-bottom: 0.3rem;">Technical Proficiencies</h2>
+                    <ul style="margin-left: 1.2rem;">
+                        <li><strong>Operating Systems:</strong> Windows, Mac OS, Linux</li>
+                        <li><strong>Tools & Software:</strong> Microsoft Office, Opera PMS, Micros POS, Material Control, Back office, Door lock systems, PABX, Antivirus Suites</li>
+                        <li><strong>Networking:</strong> Routers, Switches, Wireless Access Points</li>
+                        <li><strong>Documentation:</strong> SOPs, Manuals, Reports</li>
+                        <li><strong>Programming Languages:</strong> Python, Java, JavaScript, PHP</li>
+                        <li><strong>Frameworks & Tools:</strong> Node.js, Android Studio, Visual Studio Code, Eclipse</li>
+                        <li><strong>Web Development:</strong> HTML5, CSS3, Bootstrap, React</li>
+                        <li><strong>Database Management:</strong> MySQL, SQLite</li>
+                        <li><strong>Software Development Lifecycle (SDLC):</strong> Design, Development, Testing, Deployment, Maintenance</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width: 320px;">
+                    <h2 style="color: #ff9800; border-bottom: 2px solid #0ff; padding-bottom: 0.3rem;">Hobbies & Interests</h2>
+                    <ul style="margin-left: 1.2rem;">
+                        <li>Digital Art/Design</li>
+                        <li>Attending Hackathons</li>
+                    </ul>
+                </div>
+            </div>
+            <button id="prev-slide" style="position: absolute; left: -2.5rem; top: 50%; transform: translateY(-50%); background: #0ff; color: #222; border: none; border-radius: 50%; width: 2.5rem; height: 2.5rem; font-size: 1.5rem; cursor: pointer; box-shadow: 0 2px 8px #0ff5;">&#8592;</button>
+            <button id="next-slide" style="position: absolute; right: -2.5rem; top: 50%; transform: translateY(-50%); background: #0ff; color: #222; border: none; border-radius: 50%; width: 2.5rem; height: 2.5rem; font-size: 1.5rem; cursor: pointer; box-shadow: 0 2px 8px #0ff5;">&#8594;</button>
+        </div>
+</section>
+<script>
+// Slide navigation for about page sections
+const slides = document.querySelectorAll('#slides-container .slide');
+let currentSlide = 0;
+function showSlide(idx) {
+    slides.forEach((slide, i) => {
+        slide.style.display = i === idx ? 'block' : 'none';
+    });
+}
+document.getElementById('prev-slide').onclick = function() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+};
+document.getElementById('next-slide').onclick = function() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+};
+showSlide(currentSlide);
+</script>
+    </section>
+</main>
+<?php
+include_once __DIR__ . '/Include/footer.php';
+?>
+<script>
+// Matrix-style coding rain background for about page
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+let width = window.innerWidth;
+let height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+const fontSize = 18;
+const columns = Math.floor(width / fontSize);
+const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@*';
+const drops = Array(columns).fill(1);
+function drawMatrix() {
+    ctx.fillStyle = 'rgba(20, 24, 34, 0.18)';
+    ctx.fillRect(0, 0, width, height);
+    ctx.font = fontSize + 'px monospace';
+    for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillStyle = '#0ff';
+        ctx.shadowColor = '#0ff';
+        ctx.shadowBlur = 8;
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        ctx.shadowBlur = 0;
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
+}
+setInterval(drawMatrix, 45);
+window.addEventListener('resize', () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+});
+</script>

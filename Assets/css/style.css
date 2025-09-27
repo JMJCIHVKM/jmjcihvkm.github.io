@@ -1,0 +1,69 @@
+<style>
+	nav ul {
+		list-style: none;
+		display: flex;
+		gap: 2rem;
+		padding: 0;
+		margin: 0;
+	}
+<header>
+	<nav>
+		<ul>
+			<li><a href="/index.php">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#projects">Projects Done</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</nav>
+</header>
+	footer {
+		background: #111;
+		color: #fff;
+		padding: 2rem 0;
+		text-align: center;
+		font-family: 'Segoe UI', Arial, sans-serif;
+		position: relative;
+		width: 100%;
+	}
+	footer a {
+		margin: 0 1rem;
+		color: #fff;
+		text-decoration: none;
+		font-size: 1.5rem;
+	}
+	footer a:hover {
+		color: #0ff;
+	}
+	footer .contact {
+		margin-bottom: 0.5rem;
+		font-size: 1.1rem;
+	}
+	footer .contact a {
+		color: #0ff;
+		text-decoration: underline;
+	}
+	footer .copyright {
+		font-size: 0.9rem;
+		color: #888;
+	}
+<footer>
+	<div>
+		<a href="https://facebook.com/yourprofile" target="_blank">
+			<span style="vertical-align: middle;">&#x1F426;</span> Facebook
+		</a>
+		<a href="https://twitter.com/yourprofile" target="_blank">
+			<span style="vertical-align: middle;">&#x1F426;</span> Twitter
+		</a>
+		<a href="https://wa.me/1234567890" target="_blank">
+			<span style="vertical-align: middle;">&#x1F4F2;</span> WhatsApp
+		</a>
+	</div>
+	<div class="contact">
+		<span style="color: #0ff;">Contact:</span>
+		<a href="mailto:your@email.com">your@email.com</a>
+	</div>
+	<div class="copyright">
+		&copy; 2025 Mike Profile. All rights reserved.
+	</div>
+</footer>
+</style>
