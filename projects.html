@@ -1,0 +1,408 @@
+<?php include('Include/Header.php'); ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>vision meets reality</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: moveBg 15s ease infinite;
+      color: #ffffff;
+      font-family: 'Orbitron', sans-serif;
+      min-height: 100vh;
+      padding-top: 80px; /* reserve space for fixed header */
+    }
+
+    @keyframes moveBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ======= HEADER ======= */
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid #00ffe7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      text-align: center;
+      box-shadow: 0 0 10px #00ffe7aa;
+    }
+
+    .fixed-header h1 {
+      font-size: 1.5rem;
+      color: #00ffe7;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px #00ffe7aa;
+    }
+
+    /* ======= PROJECT LIST ======= */
+    .project-list-container {
+      background: #121212;
+      border: 2px solid #00ffe7;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 0 20px #00ffe7cc, 0 0 40px #232946aa;
+      max-width: 800px;
+      width: 90%;
+      margin: 2rem auto;
+      text-align: center;
+      animation: pulseGlow 3s ease-in-out infinite, content3DIn 1.2s cubic-bezier(.77,0,.18,1) 1;
+      font-weight: bold;
+      perspective: 900px;
+      transform-style: preserve-3d;
+    }
+    @keyframes content3DIn {
+      0% { opacity: 0; filter: blur(8px); transform: rotateY(-60deg) scale(0.8) translateY(60px); }
+      60% { opacity: 1; filter: blur(2px); transform: rotateY(12deg) scale(1.05) translateY(-8px); }
+      80% { filter: blur(0); transform: rotateY(-4deg) scale(0.98) translateY(2px); }
+      100% { opacity: 1; filter: blur(0); transform: rotateY(0) scale(1) translateY(0); }
+    }
+
+    .project-list-title {
+      font-size: 2rem;
+      color: #00ffe7;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 8px #00ffe7;
+      letter-spacing: 2px;
+    }
+
+    .project-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-list li {
+      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      border-left: 4px solid #00ffe7;
+      background: #181818;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 4px #00ffe7aa;
+      font-weight: bold;
+
+      /* Added for 3D hover effect */
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .project-list li:hover {
+      animation: pushPull 0.6s ease forwards;
+      /* Remove original transform on hover since we're animating */
+      box-shadow: none;
+    }
+
+    @keyframes pushPull {
+      0% {
+        transform: translateZ(0);
+        box-shadow: 0 0 10px #00ffe7aa;
+        color: #00ffe7;
+      }
+      50% {
+        transform: translateZ(20px);
+        box-shadow: 0 0 20px #00ffe7cc;
+        color: #00fff7;
+      }
+      100% {
+        transform: translateZ(0);
+        box-shadow: 0 0 10px #00ffe7aa;
+        color: #00ffe7;
+      }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 20px #00ffe744, 0 0 40px #23294688; }
+      50% { box-shadow: 0 0 40px #00ffe7aa, 0 0 80px #232946cc; }
+      100% { box-shadow: 0 0 20px #00ffe744, 0 0 40px #23294688; }
+    }
+
+    /* ======= FULL WIDTH TABLE CONTAINER ======= */
+    .table-container {
+      width: 100vw;               /* full viewport width */
+      max-width: none;            /* remove max width */
+      margin: 2rem 0 4rem 0;      /* vertical margins only */
+      padding: 2rem 3rem;         /* horizontal padding */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: #121212;
+      border: 2px solid #00ffe7;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #00ffe7cc, 0 0 50px #232946aa;
+      animation: pulseGlow 3s ease-in-out infinite, content3DIn 1.3s cubic-bezier(.77,0,.18,1) 0.2s 1;
+      font-size: 0.95rem;
+      color: #00ffe7;
+      box-sizing: border-box;
+      perspective: 900px;
+      transform-style: preserve-3d;
+    }
+
+    /* Ensure inner divs fill their columns */
+    .table-container > div {
+      width: 100%;
+    }
+
+    .table-container h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00ffe7;
+      text-shadow: 0 0 8px #00ffe7;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      grid-column: span 2;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #181818;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 12px #00ffe7aa;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #00ffe744;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #00ffe7;
+      color: #121212;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-shadow: none;
+    }
+
+    tr {
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+      cursor: pointer;
+    }
+
+    tr:hover {
+      animation: pushPullTable 0.6s ease forwards;
+      background: #00ffe722;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    @keyframes pushPullTable {
+      0% {
+        transform: translateZ(0);
+        box-shadow: none;
+      }
+      50% {
+        transform: translateZ(10px);
+        box-shadow: 0 0 15px #00ffe7cc;
+      }
+      100% {
+        transform: translateZ(0);
+        box-shadow: none;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      .table-container {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+      }
+      .table-container h2 {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .project-list-title {
+        font-size: 1.5rem;
+      }
+
+      .project-list li {
+        font-size: 1rem;
+      }
+
+      .fixed-header h1 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body style="font-family: 'Times New Roman', Times, serif;">
+
+  <!-- Fixed Futuristic Header -->
+  <div class="fixed-header">
+    <h1>vision meets Reality</h1>
+  </div>
+
+  <!-- Neon Glowing Project List -->
+  <div class="project-list-container">
+    <div class="project-list-title">Specializations</div>
+    <ul class="project-list">
+      <li>Mobile App Development</li>
+      <li>Estate Management Softwares</li>
+      <li>Websites for Hotels & Resorts</li>
+      <li>Security Company Websites</li>
+      <li>Individual Profile Pages</li>
+      <li>School Websites & Portals</li>
+    </ul>
+  </div>
+
+  <!-- Full width two-column table for Networking and Cybersecurity -->
+  <div class="table-container">
+    <h2>Networking & Cybersecurity Focus Areas</h2>
+
+    <!-- Networking Table -->
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="3" style="text-align:center; color:#00ffe7;">Networking</th>
+          </tr>
+          <tr>
+            <th>Area</th>
+            <th>Tools</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Network Design & Architecture</td>
+            <td>Cisco Packet Tracer, GNS3, SolarWinds</td>
+            <td>Designing secure and scalable LAN/WAN and enterprise networks.</td>
+          </tr>
+          <tr>
+            <td>Network Security</td>
+            <td>pfSense, Snort, Cisco ASA, Wireshark</td>
+            <td>Protecting networks from threats using firewalls, IDS/IPS, and monitoring.</td>
+          </tr>
+          <tr>
+            <td>Wireless Networking</td>
+            <td>Ubiquiti UniFi, Ekahau, AirMagnet</td>
+            <td>Planning, deploying, and optimizing Wi-Fi networks.</td>
+          </tr>
+          <tr>
+            <td>Cloud Networking</td>
+            <td>AWS VPC, Azure Virtual Network, Terraform</td>
+            <td>Managing virtual networks and connectivity in cloud environments.</td>
+          </tr>
+          <tr>
+            <td>Data Center Networking</td>
+            <td>Cisco Nexus, VMware NSX, Juniper Junos</td>
+            <td>High-speed switching, routing, SDN, and network virtualization.</td>
+          </tr>
+          <tr>
+            <td>Network Automation</td>
+            <td>Ansible, Python, Cisco NSO</td>
+            <td>Automating network configuration and management.</td>
+          </tr>
+          <tr>
+            <td>Routing & Switching</td>
+            <td>Cisco IOS, Juniper Junos, OSPF, BGP</td>
+            <td>Configuring core protocols and devices for efficient routing and switching.</td>
+          </tr>
+          <tr>
+            <td>Network Monitoring & Management</td>
+            <td>Nagios, Zabbix, PRTG, Wireshark</td>
+            <td>Monitoring network health, traffic, and performance.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Cybersecurity Table -->
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="3" style="text-align:center; color:#00ffe7;">Cybersecurity</th>
+          </tr>
+          <tr>
+            <th>Area</th>
+            <th>Tools</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vulnerability Assessment</td>
+            <td>Nessus, OpenVAS, Qualys</td>
+            <td>Scanning for vulnerabilities in networks and systems.</td>
+          </tr>
+          <tr>
+            <td>Penetration Testing</td>
+            <td>Metasploit, Burp Suite, Nmap</td>
+            <td>Ethical hacking to identify exploitable security weaknesses.</td>
+          </tr>
+          <tr>
+            <td>Endpoint Protection</td>
+            <td>CrowdStrike Falcon, Symantec, Windows Defender</td>
+            <td>Protecting devices from malware and threats.</td>
+          </tr>
+          <tr>
+            <td>Incident Response & Forensics</td>
+            <td>Autopsy, FTK, Volatility</td>
+            <td>Investigating breaches and analyzing digital evidence.</td>
+          </tr>
+          <tr>
+            <td>Identity & Access Management</td>
+            <td>Okta, Microsoft Azure AD, RSA SecurID</td>
+            <td>Controlling user access and authentication.</td>
+          </tr>
+          <tr>
+            <td>SIEM</td>
+            <td>Splunk, ELK Stack, AlienVault OSSIM</td>
+            <td>Collecting and analyzing security event data in real-time.</td>
+          </tr>
+          <tr>
+            <td>Cloud Security</td>
+            <td>Prisma Cloud, AWS Security Hub, Azure Security Center</td>
+            <td>Securing cloud resources and infrastructure.</td>
+          </tr>
+          <tr>
+            <td>Network Security</td>
+            <td>Snort, Suricata, Palo Alto Networks Firewalls</td>
+            <td>Defending networks with IDS/IPS and firewall technologies.</td>
+          </tr>
+          <tr>
+            <td>Governance, Risk & Compliance (GRC)</td>
+            <td>Vanta, Drata, NIST</td>
+            <td>Ensuring adherence to security standards and regulations.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
+<?php include('Include/Footer.php'); ?>
